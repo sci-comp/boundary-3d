@@ -2,7 +2,7 @@
 
 Create collision boundaries by clicking points in Godot's 3D viewport.
 
-![demo](Documentation/demo.mp4)
+https://github.com/user-attachments/assets/fbadf953-2705-4669-943a-e1f873440010
 
 ## Installation
 
