@@ -2,7 +2,6 @@
 extends Node3D
 class_name Boundary3D
 
-@export_group("Tool Control")
 @export var tool_active: bool = false : set = set_tool_active
 @export var cleanup: bool = false : set = set_cleanup
 
@@ -24,7 +23,12 @@ var point_marker_material: StandardMaterial3D
 
 func _ready():
 	if Engine.is_editor_hint():
+		add_to_group("boundary_3d_tools")
 		create_materials()
+
+func _exit_tree():
+	if Engine.is_editor_hint():
+		remove_from_group("boundary_3d_tools")
 
 func set_tool_active(active: bool):
 	tool_active = active
