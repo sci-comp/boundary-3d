@@ -34,4 +34,8 @@ func _forward_3d_gui_input(viewport_camera: Camera3D, event: InputEvent) -> int:
 	var active_boundary = find_active_boundary_recursive(EditorInterface.get_edited_scene_root())
 	if active_boundary and active_boundary.handle_click(viewport_camera, event):
 		return EditorPlugin.AFTER_GUI_INPUT_STOP
+	if active_boundary:
+		# Force selection back to boundary node, if active
+		EditorInterface.get_selection().clear()
+		EditorInterface.get_selection().add_node(active_boundary)
 	return EditorPlugin.AFTER_GUI_INPUT_PASS
